@@ -1,6 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Noise Machines`
+    title: 'Noise Machines',
+    author: {
+      name: 'Thomas Bailey',
+      contact: {
+        email: 'thomas@noisemachines.io',
+        twitter: '@noise_machines'
+      }
+    }
   },
   plugins: [
     {
