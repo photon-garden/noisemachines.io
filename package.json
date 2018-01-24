@@ -5,7 +5,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "start": "gatsby develop"
   },
   "dependencies": {
     "gatsby": "^1.9.119",
@@ -15,9 +16,7 @@
     "gatsby-transformer-remark": "^1.7.23"
   },
   "standard": {
-    "globals": [
-      "graphql"
-    ]
+    "globals": ["graphql"]
   },
   "devDependencies": {
     "eslint-config-standard": "^10.2.1",
