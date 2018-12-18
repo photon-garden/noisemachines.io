@@ -1,15 +1,24 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
-export default ({ title, author }) => {
+export default () => {
   return (
-    <header id="header">
-      <h1>
-        <a href="index.html">
-          {title} <span>by {author.name}</span>
-        </a>
-      </h1>
-      <nav>
-        <a href="#menu">Menu</a>
+    <header role='banner'>
+      <nav role='navigation'>
+        <ul>
+          <li>
+            <Link to='/writing'>Writing</Link>
+          </li>
+          <li>
+            <a href='https://partialsband.com'>Music</a>
+          </li>
+          <li>
+            <a href='http://github.com/noise-machines'>Code</a>
+          </li>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
+        </ul>
       </nav>
     </header>
   )

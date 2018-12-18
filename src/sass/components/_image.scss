@@ -1,9 +1,5 @@
-@import '../libs/vars';
-@import '../libs/functions';
-@import '../libs/mixins';
-
 ///
-/// Magnetic by Pixelarity
+/// Story by Pixelarity
 /// pixelarity.com | hello@pixelarity.com
 /// License: pixelarity.com/license
 ///
@@ -12,16 +8,19 @@
 
 	.image {
 		border: 0;
+		border-radius: _size(border-radius);
 		display: inline-block;
 		position: relative;
 
 		img {
 			display: block;
+			border-radius: _size(border-radius);
 		}
 
 		&.left,
 		&.right {
-			max-width: 40%;
+			width: 40%;
+			max-width: 10rem;
 
 			img {
 				width: 100%;
@@ -30,14 +29,14 @@
 
 		&.left {
 			float: left;
-			padding: 0 1.5em 1em 0;
-			top: 0.25em;
+			margin: 0 1.5rem 1rem 0;
+			top: 0.25rem;
 		}
 
 		&.right {
 			float: right;
-			padding: 0 0 1em 1.5em;
-			top: 0.25em;
+			margin: 0 0 1rem 1.5rem;
+			top: 0.25rem;
 		}
 
 		&.fit {

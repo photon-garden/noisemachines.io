@@ -1,144 +1,82 @@
 import React from 'react'
-import pic01 from '../images/pic01.jpg'
-import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
+import Header from '../components/header'
+import Spotlight from '../components/spotlight'
 
-/*
-<script src="assets/js/jquery.min.js" />
-<script src="assets/js/skel.min.js" />
-<script src="assets/js/util.js" />
-<script src="assets/js/main.js" />
-*/
+import bannerImageSource from '../images/banner.jpg'
+import author from '../data/author'
+import InlineSineWave from '../components/InlineSineWave'
+import Player from '../components/Player'
+const twitter = author.contact.twitter
 
-const Banner = () => (
-  <section id="banner">
-    <header>
-      <h2>Noise Machines</h2>
-      <p>Music, technology, and making new worlds</p>
-    </header>
-    <footer>
-      <ul className="actions">
-        <li>
-          <a href="#" className="button big">
-            Get Started
-          </a>
-        </li>
-      </ul>
-    </footer>
-  </section>
-)
+const AnimatedSine = () => {
+  return (
+    <Player speed={4}>
+      {progress => <InlineSineWave offset={progress} />}
+    </Player>
+  )
+}
 
 export default () => {
   return (
-    <div id="main">
-      <Banner />
-      <section id="one" className="features">
-        <header className="major">
-          <h2>Magna sed consequat</h2>
-          <p>
-            Mauris lectus odio, mattis nec velit eu, luctus dictum diam. Quis<br
-            />
-            tempus que ornare purus a bibendum ultricies.
-          </p>
-        </header>
-        <div className="content">
-          <section className="feature">
-            <span className="icon major fa-diamond" />
-            <h3>Etiam sed feugiat</h3>
-            <p>
-              Praesent egestas quam at lorem imperdiet lobortis. Mauris
-              condimentum et euismod ipsum, at ullamcorper libero dolor auctor
-              sit amet. Proin vulputate amet sem ut tempus. Donec quis ante
-              viverra, suscipit euismod habitant lorem ipsum dolor.
-            </p>
+    <div id='top'>
+      <div id='page-wrapper'>
+        <div id='wrapper' className='divided'>
+          <section className='banner style1 orient-right content-align-left image-position-center fullscreen onload-image-fade-in onload-content-fade-right'>
+            <Header />
+            <div className='content row'>
+              <h1>
+                Hi, I'm <a href={twitter}>Thomas</a>.
+              </h1>
+              <p className='major'>
+                I'm a musician and programmer. I co-founded{' '}
+                <a href='https://partialsband.com/'>
+                  <AnimatedSine />
+                  Partials
+                </a>
+                , a band that makes catchy, weird music at the border between
+                humanity and technology.
+              </p>
+              <p />
+            </div>
+            <div className='image'>
+              <img src={bannerImageSource} alt='' />
+            </div>
           </section>
-          <section className="feature">
-            <span className="icon major fa-save" />
-            <h3>Ipsum et bibendum</h3>
-            <p>
-              Praesent egestas quam at lorem imperdiet lobortis. Mauris
-              condimentum et euismod ipsum, at ullamcorper libero dolor auctor
-              sit amet. Proin vulputate amet sem ut tempus. Donec quis ante
-              viverra, suscipit euismod habitant lorem ipsum dolor.
-            </p>
-          </section>
-          <section className="feature">
-            <span className="icon major fa-newspaper-o" />
-            <h3>Sit lorem aliquam</h3>
-            <p>
-              Praesent egestas quam at lorem imperdiet lobortis. Mauris
-              condimentum et euismod ipsum, at ullamcorper libero dolor auctor
-              sit amet. Proin vulputate amet sem ut tempus. Donec quis ante
-              viverra, suscipit euismod habitant lorem ipsum dolor.
-            </p>
-          </section>
-        </div>
-      </section>
 
-      <section id="two" className="spotlight">
-        <div className="image">
-          <img src={pic01} alt="" />
+          <footer className='wrapper style1 align-center'>
+            <div className='inner'>
+              <ul className='icons'>
+                <li>
+                  <a href='#' className='icon style2 fa-twitter'>
+                    <span className='label'>Twitter</span>
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='icon style2 fa-facebook'>
+                    <span className='label'>Facebook</span>
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='icon style2 fa-instagram'>
+                    <span className='label'>Instagram</span>
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='icon style2 fa-linkedin'>
+                    <span className='label'>LinkedIn</span>
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='icon style2 fa-envelope'>
+                    <span className='label'>Email</span>
+                  </a>
+                </li>
+              </ul>
+              <p>© Untitled.</p>
+            </div>
+          </footer>
         </div>
-        <div className="content">
-          <h2>Volutpat ante libero</h2>
-          <p>
-            Praesent egestas quam at lorem imperdiet lobortis. Mauris
-            condimentum et euismod ipsum, at ullamcorper libero dolor auctor sit
-            amet. Proin vulputate amet sem ut tempus. Donec quis ante viverra,
-            suscipa facilisis at, vestibulum id urna. Lorem ipsum dolor sit amet
-            sollicitudin.
-          </p>
-        </div>
-      </section>
-
-      <section id="three" className="spotlight alt">
-        <div className="image">
-          <img src={pic02} alt="" />
-        </div>
-        <div className="content">
-          <h2>Elit auctor tempus</h2>
-          <p>
-            Praesent egestas quam at lorem imperdiet lobortis. Mauris
-            condimentum et euismod ipsum, at ullamcorper libero dolor auctor sit
-            amet. Proin vulputate amet sem ut tempus. Donec quis ante viverra,
-            suscipa facilisis at, vestibulum id urna. Lorem ipsum dolor sit amet
-            sollicitudin.
-          </p>
-        </div>
-      </section>
-
-      <section id="four" className="spotlight">
-        <div className="image">
-          <img src={pic03} alt="" />
-        </div>
-        <div className="content">
-          <h2>Porta vestibulum</h2>
-          <p>
-            Praesent egestas quam at lorem imperdiet lobortis. Mauris
-            condimentum et euismod ipsum, at ullamcorper libero dolor auctor sit
-            amet. Proin vulputate amet sem ut tempus. Donec quis ante viverra,
-            suscipa facilisis at, vestibulum id urna. Lorem ipsum dolor sit amet
-            sollicitudin.
-          </p>
-        </div>
-      </section>
-
-      <section id="five" className="cta">
-        <header>
-          <h2>Sed euismod nullam</h2>
-          <p>
-            Odio mattis nec velit eu, luctus dictum diam. Quis<br />
-            tempus que ornare purus a bibendum ultricies
-          </p>
-        </header>
-        <ul className="actions">
-          <li>
-            <a href="#" className="button big">
-              Get Started
-            </a>
-          </li>
-        </ul>
-      </section>
+      </div>
     </div>
   )
 }
