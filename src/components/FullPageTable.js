@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default ({ h1, ths, trs, footerTr }) => (
-  <div id='wrapper' className='divided'>
+export default ({ h1, ths, trs, footerTr, wrapperClass }) => (
+  <div id='wrapper' className={`divided ${wrapperClass}`}>
     <section className='wrapper style1 align-center'>
       <div className='inner'>
         <h1>{h1}</h1>
@@ -11,11 +11,7 @@ export default ({ h1, ths, trs, footerTr }) => (
               <div className='table-wrapper'>
                 <table className='alt uniform'>
                   <thead>
-                    <tr>
-                      {ths.map(th => (
-                        <th key={th}>{th}</th>
-                      ))}
-                    </tr>
+                    <tr>{ths}</tr>
                   </thead>
                   <tbody>{trs}</tbody>
                   <tfoot>{footerTr}</tfoot>
