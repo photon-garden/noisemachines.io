@@ -111,6 +111,3 @@ export const MAX_WIDTH = {
   md: BREAKPOINT_SIZES.md + 'px',
   base: BREAKPOINT_SIZES.lg + 'px'
 }
-
-const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i
-export const IS_MOBILE_USER_AGENT = mobileRegex.test(navigator.userAgent)

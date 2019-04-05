@@ -133,7 +133,7 @@ class ListensContainer extends React.Component {
     let from = toBeginningOfDay(to)
     const toInMs = to.getTime()
     const fromInMs = from.getTime()
-    const url = `http://data.noisemachines.io/thomas/listens?from=${fromInMs}&to=${toInMs}`
+    const url = `https://data.noisemachines.io/thomas/listens?from=${fromInMs}&to=${toInMs}`
     await this.props.fetch(url, from)
     if (nearBottom()) {
       this.fetchNextDay()
