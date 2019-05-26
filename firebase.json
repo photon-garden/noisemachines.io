@@ -6,6 +6,13 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      {
+        "source": "/principles",
+        "destination": "https://www.notion.so/noisemachines/Principles-43b71a0ea604451c9fcb88a14c92f48f",
+        "type": 302
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
