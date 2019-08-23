@@ -13,7 +13,7 @@ export default page => {
   const image = page.image ? new URL(page.image, defaults.baseUrl) : false
 
   return (
-    <Helmet>
+    <Helmet htmlAttributes={{ lang: 'en-US' }}>
       <title>{title}</title>
       <link rel='canonical' href={url} />
       <meta name='description' content={description} />
