@@ -7,7 +7,10 @@ export default () => {
   const width = 350
   const height = width * aspectRatio
   return (
-    <div style={{ width: width, height: height }} className='impossible-window'>
+    <div
+      style={{ width: width, height: height }}
+      className='impossible-window z2'
+    >
       <Sky
         width={width - variables.skyMargin}
         height={height - variables.skyMargin}
