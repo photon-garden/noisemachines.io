@@ -1,0 +1,15 @@
+// variables.scss
+$background: #f7f5f3;
+$dark-text: #000;
+$text: #333;
+$sky: #edf5f8;
+$sky-margin: 5;
+
+// the :export directive is the magic sauce for webpack
+:export {
+  background: $background;
+  darkText: $dark-text;
+  text: $text;
+  sky: $sky;
+  skyMargin: $sky-margin;
+}

@@ -1,5 +1,7 @@
-/* body {
-    background-color: #f7f5f3;
+@import 'variables';
+
+body {
+    background-color: $background;
     margin: 0
 }
 
@@ -10,7 +12,7 @@ ul {
 }
 
 a {
-    color: #000;
+    color: $dark-text;
     font-family: apercu_medium, Arial, Helvetica, sans-serif;
     text-decoration: none
 }
@@ -19,7 +21,7 @@ a {
     font-size: 30px;
     font-family: apercu_regular, Arial, Helvetica, sans-serif;
     line-height: 30px;
-    color: #333;
+    color: $text;
     font-weight: 400
 }
 
@@ -27,13 +29,33 @@ h1 {
     font-size: 72px;
     line-height: 72px;
     margin: 0;
-    color: #000
+    color: $dark-text;
+}
+
+.impossible-window {
+    transform: rotate(45deg);
+    overflow: hidden;
+}
+
+.sky {
+    position: absolute;
+    transform: translate($sky-margin + px, $sky-margin + px);
+}
+
+.window {
+    position: absolute;
 }
 
 @media (min-width:1280px) {
+    .art-container {
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .text-container {
-    position: absolute;
-    left: 50vw
+        position: absolute;
+        left: 50vw
     }
 }
 
@@ -123,4 +145,4 @@ main {
          url('../fonts/apercu-font-kit/apercu_regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-} */
+}
