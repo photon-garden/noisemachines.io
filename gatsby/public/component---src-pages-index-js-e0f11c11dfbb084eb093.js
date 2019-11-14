@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{138:function(t,n,e){"use strict";e.r(n);var i=e(0),a=e.n(i);e(168),e(146).a,e(174),n.default=function(){return a.a.createElement("h1",null,"Hi, I'm Thomas.")}},146:function(t,n,e){"use strict";n.a={name:"Thomas Bailey",contact:{email:"thomas@noisemachines.io",twitter:"https://twitter.com/@noise_machines"}}},174:function(t,n,e){}}]);
+//# sourceMappingURL=component---src-pages-index-js-e0f11c11dfbb084eb093.js.map
