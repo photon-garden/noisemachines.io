@@ -32,6 +32,32 @@ h1 {
     color: $dark-text;
 }
 
+.impossible-window {
+    transform: rotate(45deg);
+    overflow: hidden;
+}
+
+.sky {
+    position: absolute;
+    transform: translate($sky-margin + px, $sky-margin + px);
+}
+
+.window {
+    position: absolute;
+}
+
+@media (min-width:1280px) {
+    .art-container {
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .text-container {
+        position: absolute;
+        left: 50vw
+    }
+}
 
 main {
     display: flex;

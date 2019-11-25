@@ -1,6 +1,5 @@
 <script>
   import { colors } from "./Theme.svelte"
-  import Sky from "./Sky.svelte"
   const width = 350
   const height = width * aspectRatio
   const strokeWidth = 0.1
@@ -8,19 +7,36 @@
   const aspectRatio = 1.058035714
 </script>
 
+<style>
+  .impossible-window {
+    transform: rotate(45deg);
+    overflow: hidden;
+  }
+</style>
+
 <div style="width: {width}px; height:{height}px;" class="impossible-window z2">
-  <Sky
-    width={width - colors.skyMargin}
-    height={height - colors.skyMargin}
-    fillStyle={colors.skyFillStyle} />
   <svg
-    {width}
     class="window"
+    {width}
     {height}
-    viewBox="0 0 224 237"
+    viewBox="0 0 225 238"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
     <g id="impossible window">
+      <g id="sky">
+        <path
+          id="sky/top"
+          d="M14 53V14H224V146H204V124L133 53H14Z"
+          fill={colors.sky} />
+        <path
+          id="sky/middle"
+          d="M125 106H79L119 146H165L125 106Z"
+          fill={colors.sky} />
+        <path
+          id="sky/bottom"
+          d="M224 237V198H115L36 119V106H13V237H224Z"
+          fill={colors.sky} />
+      </g>
       <g id="bottom arm">
         <path
           id="bottom arm/bicep"

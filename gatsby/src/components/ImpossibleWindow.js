@@ -1,6 +1,5 @@
 import React from 'react'
 import variables from '../sass/variables.scss'
-import Sky from './Sky'
 const aspectRatio = 1.058035714
 
 export default () => {
@@ -14,10 +13,6 @@ export default () => {
       style={{ width: width, height: height }}
       className='impossible-window z2'
     >
-      <Sky
-        width={width - variables.skyMargin}
-        height={height - variables.skyMargin}
-      />
       <svg
         width={width}
         className='window'
