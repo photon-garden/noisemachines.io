@@ -22,9 +22,9 @@ const toArtMetadata = fileName => {
 }
 
 export async function get (req, res, next) {
-  const blackList = ['index.json.js', 'index.svelte']
+  const blackList = ['index.json.js', 'index.svelte', '_helpers']
   const artDirectory = await getArtDirectory()
-  let fileNames = await fs.readdir(artDirectory)
+  const fileNames = await fs.readdir(artDirectory)
   const art = fileNames
     .filter(file => !blackList.includes(file))
     .map(toArtMetadata)

@@ -10,6 +10,10 @@
   export let art
 </script>
 
-{#each art as piece}
-  <a href={piece.url}>{piece.name}</a>
-{/each}
+<ul>
+  {#each art as piece}
+    <li>
+      <a href={piece.url}>{piece.name}</a>
+    </li>
+  {/each}
+</ul>

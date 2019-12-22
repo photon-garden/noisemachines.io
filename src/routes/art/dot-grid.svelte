@@ -6,6 +6,10 @@
     createHatchLines,
     clipLineToCircle
   } from "canvas-sketch-util/geometry"
+  import getCircle from "./_helpers/getCircle"
+  import getGrid from "./_helpers/getGrid"
+  import { piFourths, piHalfs } from "./_helpers/pi"
+  import getHatchedCircle from "./_helpers/getHatchedCircle"
 
   const settings = {
     dimensions: [25, 25],
@@ -18,73 +22,20 @@
     }
   }
 
-  const PI_HALFS = Math.PI / 2
-  const PI_FOURTHS = Math.PI / 4
-
-  const getCircle = ([cx, cy], r) => {
-    const steps = 50
-    const points = []
-    for (let i = 0; i < steps; i++) {
-      const t = i / Math.max(1, steps - 1)
-      const angle = Math.PI * 2 * t
-      const x = cx + Math.cos(angle) * r
-      const y = cy + Math.sin(angle) * r
-      points.push([x, y])
-    }
-    return points
-  }
-
-  const getBoundsForCircle = ([x, y], r) => [[x - r, y - r], [x + r, y + r]]
-  const getHatchedCircle = (
-    center,
-    r,
-    hatchAngle = PI_FOURTHS,
-    hatchSpacing = 0.09
-  ) => {
-    const bounds = getBoundsForCircle(center, r)
-    const hatches = createHatchLines(bounds, hatchAngle, hatchSpacing)
-    const clippedHatches = hatches.map(hatch => {
-      const clipped = []
-      clipLineToCircle(...hatch, center, r, clipped)
-      return clipped
-    })
-    return clippedHatches
-  }
-
   const getCrossHatchedCircle = (
     center,
     radius,
-    hatchAngle = PI_FOURTHS,
+    hatchAngle = piFourths,
     hatchSpacing = 0.09
   ) => {
     const hatches = getHatchedCircle(center, radius, hatchAngle, hatchSpacing)
     const orthogonalHatches = getHatchedCircle(
       center,
       radius,
-      hatchAngle + PI_HALFS,
+      hatchAngle + piHalfs,
       hatchSpacing
     )
     return [...hatches, ...orthogonalHatches]
-  }
-
-  const getGrid = ({ width, height, data: { density } }) => {
-    const points = []
-
-    const smallerAxis = Math.min(width, height)
-    const spacing = smallerAxis / (density - 1)
-    const columns = Math.round(width / spacing)
-    const rows = Math.round(height / spacing)
-
-    for (let column = 0; column <= columns; column++) {
-      points[column] = []
-      for (let row = 0; row <= rows; row++) {
-        const x = column * spacing
-        const y = row * spacing
-        points[column].push([x, y])
-      }
-    }
-
-    return { points, spacing }
   }
 
   const shrinkArray = (array, shrinkage) =>
@@ -111,7 +62,7 @@
         const circle = getCircle(point, radius)
         lines.push(circle)
 
-        const hatches = getCrossHatchedCircle(point, radius, Math.PI / 2, 0.1)
+        const hatches = getCrossHatchedCircle(point, radius, piHalfs, 0.1)
         lines.push(hatches)
       })
     }
