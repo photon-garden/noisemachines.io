@@ -13,12 +13,12 @@
     scaleToView: true,
     units: "cm",
     data: {
-      density: 25
+      density: 250
     }
   }
 
   const getNoise = point => {
-    const noise = random.noise2D(...point, 0.1)
+    const noise = random.noise2D(...point, 0.2)
     return mapRange(noise, -1, 1, 0, 1)
   }
 

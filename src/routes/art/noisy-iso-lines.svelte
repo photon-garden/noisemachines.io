@@ -15,12 +15,14 @@
     scaleToView: true,
     units: "cm",
     data: {
-      density: 100
+      density: 1000,
+      boxSize: 7
     }
   }
 
   const getNoise = point => {
-    const noise = random.noise2D(...point, 1)
+    const frequency = 10
+    const noise = random.noise2D(...point, frequency)
     return mapRange(noise, -1, 1, 0, 1)
   }
 
@@ -28,9 +30,12 @@
     grid.map(column => column.map(point => fn(point)))
 
   const sketch = props => {
-    const { width, height } = props
+    const {
+      width,
+      height,
+      data: { boxSize }
+    } = props
     const center = [width / 2, height / 2]
-    const boxSize = 7
     const box = [
       [center[0] - boxSize, center[1] - boxSize],
       [center[0] + boxSize, center[0] + boxSize]
