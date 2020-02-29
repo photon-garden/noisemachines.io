@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build",
+    "deploy": "yarn build && eb deploy",
     "export": "sapper export",
-    "start": "node __sapper__/build",
+    "start": "npm run build && node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test:integration": "run-p --race dev cy:run",
@@ -49,8 +50,6 @@
     "svelte": "^3.0.0"
   },
   "ava": {
-    "require": [
-      "esm"
-    ]
+    "require": ["esm"]
   }
 }

@@ -43,8 +43,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
+    width: calc(100vw - 30px);
+    height: calc(100vh - 30px);
+    border: solid var(--border) 15px;
     background-color: var(--window-light);
   }
 
