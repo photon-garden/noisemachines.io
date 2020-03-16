@@ -8,7 +8,7 @@
   import * as MarchingSquares from "marchingsquares"
   import clipPolylineToCircle from "./_helpers/clipPolylineToCircle"
   import getCircle from "./_helpers/getCircle"
-  import smoothPolyline from "./_helpers/smoothPolyline"
+  import { smoothPoints } from "./_helpers/smooth"
 
   const settings = {
     dimensions: [25, 25],
@@ -35,7 +35,7 @@
   const recursivelySmooth = (polyline, depth) => {
     let smoothed = polyline
     for (let i = 0; i < depth; i++) {
-      smoothed = smoothPolyline(smoothed, 0.49)
+      smoothed = smoothPoints(smoothed, 0.49)
     }
     return smoothed
   }

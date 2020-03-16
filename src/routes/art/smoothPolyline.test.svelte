@@ -1,7 +1,7 @@
 <script>
   import SketchCanvas from "../../components/SketchCanvas.svelte"
   import { renderPaths } from "canvas-sketch-util/penplot"
-  import smoothPolyline from "./_helpers/smoothPolyline"
+  import { smoothPoints } from "./_helpers/smooth"
 
   const settings = {
     dimensions: [1, 1],
@@ -23,7 +23,7 @@
       [cx - width / 4, cy]
       // [cx, cy + height / 4]
     ]
-    const smoothed = smoothPolyline(line, 0.25)
+    const smoothed = smoothPoints(line, 0.25)
     // const smoothed = line
 
     const lines = [smoothed]

@@ -1502,6 +1502,11 @@ chokidar@^3.0.2:
   optionalDependencies:
     fsevents "~2.1.2"
 
+chromotome@^1.16.3:
+  version "1.16.3"
+  resolved "https://registry.yarnpkg.com/chromotome/-/chromotome-1.16.3.tgz#24eddc2512398d740afd49deeb59414065592811"
+  integrity sha512-kDfb4IvZE2+tVHddJCajlw14E21hIso2ypesQjXmnTSy+/rt7fNue26Q/D+Wo2OWrBmuMOGNKXpsZRHu2Y6U2A==
+
 chunkd@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/chunkd/-/chunkd-1.0.0.tgz#4ead4a3704bcce510c4bb4d4a8be30c557836dd1"
