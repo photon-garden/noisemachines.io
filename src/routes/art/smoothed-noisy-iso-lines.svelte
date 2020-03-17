@@ -4,9 +4,8 @@
   import random from "canvas-sketch-util/random"
   import getGrid from "./_helpers/getGrid"
   import { mapRange } from "canvas-sketch-util/math"
-  import * as MarchingSquares from "marchingsquares"
   import { clipPolylinesToBox } from "canvas-sketch-util/geometry"
-  import { smoothPointsRecursively } from "./_helpers/smooth"
+  import getSmoothIsoLines from "./_helpers/getIsoLines"
 
   export const settings = {
     dimensions: [25, 25],
@@ -45,11 +44,12 @@
     const maxRadius = grid.spacing / 2
 
     const noisyGrid = mapGrid(grid.points, getNoise)
-    let lines = MarchingSquares.isoLines(noisyGrid, [0.25, 0.5, 0.75])
-    lines = lines.map(line => smoothPointsRecursively(line, 6))
-    // .map(line => clipPolylinesToBox(line, box, true, true))
+    let lineCollections = getSmoothIsoLines(noisyGrid, [0.25, 0.5, 0.75], 3)
+    lineCollections = lineCollections.map(lineCollection =>
+      clipPolylinesToBox(lineCollection, box, true, true)
+    )
 
-    return props => renderPaths(lines, props)
+    return props => renderPaths(lineCollections, props)
   }
 </script>
 
