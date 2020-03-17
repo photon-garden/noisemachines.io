@@ -1,8 +1,8 @@
-<script>
-  import SketchCanvas from "../../components/SketchCanvas.svelte"
+<script context="module">
+  import SketchCanvas from "./_SketchCanvas.svelte"
   import tome from "chromotome"
 
-  const settings = {
+  export const settings = {
     dimensions: [25, 25],
     orientation: "portrait",
     pixelsPerInch: 300,
@@ -10,8 +10,7 @@
     units: "cm",
     data: {}
   }
-
-  const sketch = props => {
+  export const sketch = props => {
     const { width, height } = props
     const center = [width / 2, height / 2]
     const palette = tome.getRandom()
@@ -44,4 +43,4 @@
   }
 </script>
 
-<SketchCanvas {sketch} {settings} />
+<SketchCanvas {sketch} {settings} artworkId="sideways" />

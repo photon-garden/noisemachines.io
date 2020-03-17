@@ -1,5 +1,5 @@
-<script>
-  import SketchCanvas from "../../components/SketchCanvas.svelte"
+<script context="module">
+  import SketchCanvas from "./_SketchCanvas.svelte"
   import { renderPaths } from "canvas-sketch-util/penplot"
   import getHatchedCircle from "./_helpers/getHatchedCircle"
   import random from "canvas-sketch-util/random"
@@ -10,7 +10,7 @@
   import getCircle from "./_helpers/getCircle"
   import { smoothPoints } from "./_helpers/smooth"
 
-  const settings = {
+  export const settings = {
     dimensions: [25, 25],
     orientation: "portrait",
     pixelsPerInch: 300,
@@ -40,7 +40,7 @@
     return smoothed
   }
 
-  const sketch = props => {
+  export const sketch = props => {
     const {
       width,
       height,
@@ -82,4 +82,4 @@
   }
 </script>
 
-<SketchCanvas {sketch} {settings} />
+<SketchCanvas {sketch} {settings} artworkId="noisy-clipped-iso-lines" />

@@ -1,5 +1,5 @@
-<script>
-  import SketchCanvas from "../../components/SketchCanvas.svelte"
+<script context="module">
+  import SketchCanvas from "./_SketchCanvas.svelte"
   import { renderPaths } from "canvas-sketch-util/penplot"
   import getHatchedCircle from "./_helpers/getHatchedCircle"
   import random from "canvas-sketch-util/random"
@@ -8,7 +8,7 @@
   import { triangle } from "./_helpers/waves"
   import { twoPi } from "./_helpers/pi"
 
-  const settings = {
+  export const settings = {
     dimensions: [25, 25],
     orientation: "portrait",
     pixelsPerInch: 300,
@@ -31,14 +31,13 @@
     return circle.map(([a, b]) => {})
   }
 
-  const sketch = props => {
+  export const sketch = props => {
     const { width, height } = props
     const grid = getGrid(props)
     const maxRadius = grid.spacing / 2
 
     return props => {
       const z = triangle(props.playhead)
-      console.log(z)
       const circles = grid.points.flat().map(point => {
         const noise = getNoise(point, z * 5)
         const radius = noise * maxRadius
@@ -51,4 +50,4 @@
   }
 </script>
 
-<SketchCanvas {sketch} {settings} />
+<SketchCanvas {sketch} {settings} artworkId="animated-noisy-hatched-circles" />

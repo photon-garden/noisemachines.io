@@ -1,12 +1,12 @@
-<script>
-  import SketchCanvas from "../../components/SketchCanvas.svelte"
+<script context="module">
+  import SketchCanvas from "./_SketchCanvas.svelte"
   import { renderPaths } from "canvas-sketch-util/penplot"
   import getHatchedCircle from "./_helpers/getHatchedCircle"
   import random from "canvas-sketch-util/random"
   import getGrid from "./_helpers/getGrid"
   import { mapRange } from "canvas-sketch-util/math"
 
-  const settings = {
+  export const settings = {
     dimensions: [25, 25],
     orientation: "portrait",
     pixelsPerInch: 300,
@@ -22,7 +22,7 @@
     return mapRange(noise, -1, 1, 0, 1)
   }
 
-  const sketch = props => {
+  export const sketch = props => {
     const { width, height } = props
     const grid = getGrid(props)
     const maxRadius = grid.spacing / 2
@@ -36,4 +36,4 @@
   }
 </script>
 
-<SketchCanvas {sketch} {settings} />
+<SketchCanvas {sketch} {settings} artworkId="noisy-hatched-circles" />

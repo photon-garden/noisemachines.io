@@ -1,5 +1,5 @@
-<script>
-  import SketchCanvas from "../../components/SketchCanvas.svelte"
+<script context="module">
+  import SketchCanvas from "./_SketchCanvas.svelte"
   import { renderPaths } from "canvas-sketch-util/penplot"
   import { lerp } from "canvas-sketch-util/math"
   import {
@@ -11,7 +11,7 @@
   import { piFourths, piHalfs } from "./_helpers/pi"
   import getHatchedCircle from "./_helpers/getHatchedCircle"
 
-  const settings = {
+  export const settings = {
     dimensions: [25, 25],
     orientation: "portrait",
     pixelsPerInch: 300,
@@ -47,7 +47,7 @@
     return shrunk
   }
 
-  const sketch = props => {
+  export const sketch = props => {
     // List of polylines for our pen plot
     const lines = []
     const steps = 5
@@ -71,4 +71,4 @@
   }
 </script>
 
-<SketchCanvas {sketch} {settings} />
+<SketchCanvas {sketch} {settings} artworkId="dot-grid" />
