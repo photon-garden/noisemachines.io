@@ -30,6 +30,9 @@
   const mapGrid = (grid, fn) =>
     grid.map(column => column.map(point => fn(point)))
 
+  const clipLineCollectionToCircle = (center, radius) => lineCollection =>
+    lineCollection.map(line => clipPolylineToCircle(line, center, radius))
+
   export const sketch = props => {
     const {
       width,
@@ -42,8 +45,8 @@
     const noisyGrid = mapGrid(grid.points, getNoise)
 
     let lineCollections = getIsoLines(noisyGrid, isoLineThresholds, 3)
-    lineCollections = lineCollections.map(lineCollection =>
-      lineCollection.map(line => clipPolylineToCircle(line, center, radius))
+    lineCollections = lineCollections.map(
+      clipLineCollectionToCircle(center, radius)
     )
 
     const circle = getCircle(center, radius, 100)
