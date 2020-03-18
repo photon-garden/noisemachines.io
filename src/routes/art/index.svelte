@@ -2,19 +2,27 @@
   export async function preload() {
     const res = await this.fetch(`art.json`)
     const pieces = await res.json()
-    return { pieces }
+
+    const size = 250
+    const piecesWithDimensions = pieces.map(piece => {
+      return {
+        ...piece,
+        width: size,
+        height: size,
+        previewUrl: piece.previewUrl + `/${size}x${size}`
+      }
+    })
+
+    return { pieces: piecesWithDimensions }
   }
 </script>
 
 <script>
-  import modules from "./index.js"
   export let pieces
 </script>
 
 <style>
   .preview {
-    width: 250px;
-    height: 250px;
     box-shadow: 0px 2px 12px -2px rgba(0, 0, 0, 0.15);
   }
 
@@ -43,6 +51,7 @@
         <a href={piece.url}>
           <img
             class="preview"
+            style={`width: ${piece.width}px; height: ${piece.height}px;`}
             alt="{piece.name} preview"
             src={piece.previewUrl} />
         </a>

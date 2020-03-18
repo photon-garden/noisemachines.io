@@ -1,16 +1,12 @@
 <script>
-  import { onMount, tick } from "svelte"
+  import { onMount } from "svelte"
   import canvasSketch from "canvas-sketch"
   import sleep from "./_helpers/sleep"
   import { getMetadata } from "./[id].json.js"
-  import resizeCanvas from "canvas-sketch/lib/core/resizeCanvas"
 
   export let settings
   export let sketch
   export let artworkId
-
-  let styleWidth
-  let styleHeight
 
   const artworkMetadata = getMetadata(artworkId)
 
@@ -18,10 +14,6 @@
   let loading = true
 
   onMount(async () => {
-    const resizeResults = resizeCanvas({ exporting: false }, settings)
-    styleWidth = resizeResults.styleWidth
-    styleHeight = resizeResults.styleHeight
-
     settings.canvas = canvas
     await canvasSketch(sketch, settings)
     await sleep(0) // Required to get the CSS transition to work for some reason.
