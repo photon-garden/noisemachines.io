@@ -44,7 +44,6 @@
         const hatchedCircle = getHatchedCircle(point, radius, undefined, 0.08)
         return hatchedCircle
       })
-      // const animatedLines = circle.map(animateCircle)
       renderPaths(circles, props)
     }
   }

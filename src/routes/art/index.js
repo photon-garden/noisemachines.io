@@ -4,7 +4,7 @@ import * as noisyClippedIsoLines from './noisy-clipped-iso-lines.svelte'
 import * as noisyHatchedCircles from './noisy-hatched-circles.svelte'
 import * as sideways from './sideways.svelte'
 import * as smoothedNoisyIsoLines from './smoothed-noisy-iso-lines.svelte'
-import * as smoothedPolyline from './smoothed-polyline.svelte'
+import * as smoothedPolylines from './smoothed-polylines.svelte'
 
 const artPieces = {
   'animated-noisy-hatched-circles': animatedNoisyHatchedCircles,
@@ -13,7 +13,7 @@ const artPieces = {
   'noisy-hatched-circles': noisyHatchedCircles,
   sideways: sideways,
   'smoothed-noisy-iso-lines': smoothedNoisyIsoLines,
-  'smoothed-polyline': smoothedPolyline
+  'smoothed-polylines': smoothedPolylines
 }
 
 export default artPieces
