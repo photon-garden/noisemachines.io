@@ -7,6 +7,9 @@
   import clipPolylineToCircle from "./_helpers/clipPolylineToCircle"
   import getCircle from "./_helpers/getCircle"
   import getIsoLines from "./_helpers/getIsoLines"
+  import tome from "chromotome"
+
+  const palette = tome.get("cc238")
 
   export const settings = {
     dimensions: [25, 25],
@@ -52,7 +55,15 @@
     const circle = getCircle(center, radius, 100)
     lineCollections.push(circle)
 
-    return props => renderPaths(lineCollections, props)
+    console.log(props)
+
+    return props =>
+      renderPaths(lineCollections, {
+        ...props,
+        background: palette.background,
+        foreground: palette.colors[2],
+        lineWidth: 0.1
+      })
   }
 </script>
 
