@@ -67,4 +67,4 @@
   }
 </script>
 
-<SketchCanvas {sketch} {settings} artworkId="noisy-clipped-iso-lines" />
+<SketchCanvas {sketch} {settings} artworkId="iso-circle" />

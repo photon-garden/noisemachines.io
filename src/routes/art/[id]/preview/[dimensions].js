@@ -38,5 +38,10 @@ export async function get (req, res, next) {
   const resizer = sharp()
     .resize(300)
     .jpeg()
+
   imageStream.pipe(resizer).pipe(res)
+}
+
+const executor = (resolve, reject) => {
+  floorplanImageUploader
 }
