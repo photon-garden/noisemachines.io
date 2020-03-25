@@ -14,23 +14,24 @@
 
 <style>
   * {
-    color: #fffffe;
+    color: var(--white-text);
   }
   .header {
-    background-color: #78c8cc;
+    background-color: var(--brand-color);
     display: flex;
     justify-content: center;
   }
 
   .container {
     display: flex;
-    max-width: 1100px;
+    max-width: var(--width);
     margin-top: 78px;
     margin-bottom: 62px;
   }
 
   .logo {
     margin-right: 42px;
+    margin-left: 123px;
   }
 
   :global(.logo svg) {
@@ -42,8 +43,8 @@
   }
 
   :global(svg) {
-    fill: #fffffe;
-    stroke: #fffffe;
+    fill: var(--white-text);
+    stroke: var(--white-text);
   }
 
   .name {
