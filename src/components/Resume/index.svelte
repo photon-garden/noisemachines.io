@@ -3,6 +3,9 @@
   import Header from "./Header.svelte"
   import SectionBreak from "./SectionBreak.svelte"
   import Position from "./Position.svelte"
+  import Project from "./Project.svelte"
+  import Skills from "./Skills.svelte"
+  import EducationalExperience from "./EducationalExperience.svelte"
 
   const variables = {
     brandColor: "#78c8cc",
@@ -24,7 +27,6 @@
 <style>
   .page {
     width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
   }
@@ -33,6 +35,8 @@
     max-width: var(--width);
     box-shadow: 0px 2px 12px -2px rgba(0, 0, 0, 0.25);
     margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 42px;
   }
 </style>
 
@@ -46,8 +50,18 @@
       {/each}
 
       <SectionBreak name={'projects'} />
+      {#each person.projects as project}
+        <Project {project} />
+      {/each}
+
       <SectionBreak name={'skills'} />
+      <Skills skills={person.skills} />
+
       <SectionBreak name={'education'} />
+      {#each person.educationalExperiences as educationalExperience}
+        <EducationalExperience {educationalExperience} />
+      {/each}
+
     </div>
   </div>
 </CssVariablesWrapper>

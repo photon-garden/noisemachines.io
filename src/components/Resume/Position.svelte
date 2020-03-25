@@ -1,19 +1,17 @@
 <script>
-  import LeftColumn from "./LeftColumn.svelte"
-  import RightColumn from "./RightColumn.svelte"
+  import Row from "./Row.svelte"
   export let position
 </script>
 
 <style>
   .position {
     margin-top: 20px;
-    display: flex;
   }
 
   .job-title {
     text-transform: uppercase;
     color: var(--dark-text);
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
   }
 
@@ -27,14 +25,14 @@
 </style>
 
 <div class="position">
-  <LeftColumn>
-    <span class="job-title">{position.jobTitle}</span>
-  </LeftColumn>
-  <RightColumn>
-    <div class="employer-and-location">
-      {position.employer} ‒
-      <span class="location">{position.location}</span>
+  <Row>
+    <span slot="left-column" class="job-title">{position.jobTitle}</span>
+    <div slot="right-column">
+      <div class="employer-and-location">
+        {position.employer} ‒
+        <span class="location">{position.location}</span>
+      </div>
+      <div class="description">{position.description}</div>
     </div>
-    <div class="description">{position.description}</div>
-  </RightColumn>
+  </Row>
 </div>

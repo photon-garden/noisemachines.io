@@ -1,13 +1,15 @@
 <script>
-  import LeftColumn from "./LeftColumn.svelte"
+  import Row from "./Row.svelte"
   export let name
 </script>
 
 <style>
   .section-break {
-    display: flex;
-    align-items: center;
     margin-top: 28px;
+  }
+
+  :global(.section-break .row) {
+    align-items: center;
   }
 
   .name {
@@ -28,8 +30,8 @@
 </style>
 
 <div class="section-break">
-  <LeftColumn>
-    <span class="name">{name}</span>
-  </LeftColumn>
-  <hr />
+  <Row>
+    <span slot="left-column" class="name">{name}</span>
+    <hr slot="right-column" />
+  </Row>
 </div>
