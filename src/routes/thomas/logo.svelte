@@ -1,18 +1,12 @@
 <svg
-  class="vector"
-  width="300px"
-  height="300px"
+  viewBox="0 0 244 243"
   xmlns="http://www.w3.org/2000/svg"
-  baseProfile="full"
-  version="1.1"
-  style="width: 300px; height: 300px; stroke-width: 10; fill: none;
-  stroke-linecap: square;">
-  <g transform="translate(0,0)">
-    <path
-      d="M120,90 L120,270 M180,90 L180,270 M120,270 L180,270 M120,90 L180,90
-      M30,30 L30,90 L270,90 L270,30 L30,30 " />
-  </g>
-  <g>
-    <path d="M0,0" transform="" />
-  </g>
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="1.1">
+  <path
+    d="M92 62 L92 242 M152 62 L152 242 M92 242 L152 242 M92 62 L152 62 M2 2 L2
+    62 242 62 242 2 Z"
+    fill="none"
+    stroke-opacity="1"
+    stroke-linecap="square" />
 </svg>
