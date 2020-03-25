@@ -1,7 +1,8 @@
 <script>
+  import CssVariablesWrapper from "../CssVariablesWrapper.svelte"
   import Header from "./Header.svelte"
   import SectionBreak from "./SectionBreak.svelte"
-  import CssVariablesWrapper from "../CssVariablesWrapper.svelte"
+  import Position from "./Position.svelte"
 
   const variables = {
     brandColor: "#78c8cc",
@@ -12,7 +13,9 @@
     text: "#434342",
     darkText: "#40403f",
 
-    width: "1260px"
+    width: "1260px",
+    leftColumnWidth: "337px",
+    rightColumnWidth: "833px"
   }
 
   export let person
@@ -38,6 +41,13 @@
     <div class="container">
       <Header {person} />
       <SectionBreak name={'experience'} />
+      {#each person.positions as position}
+        <Position {position} />
+      {/each}
+
+      <SectionBreak name={'projects'} />
+      <SectionBreak name={'skills'} />
+      <SectionBreak name={'education'} />
     </div>
   </div>
 </CssVariablesWrapper>

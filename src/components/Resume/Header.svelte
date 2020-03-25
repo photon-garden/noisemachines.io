@@ -60,6 +60,10 @@
     margin-top: 27px;
   }
 
+  .intro-and-details {
+    margin-right: 94px;
+  }
+
   .details {
     display: flex;
     position: relative;
