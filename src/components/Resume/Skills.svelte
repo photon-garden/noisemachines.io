@@ -6,12 +6,6 @@
   const categories = Object.keys(skills)
 </script>
 
-<style>
-  .skill {
-    margin-bottom: 20px;
-  }
-</style>
-
 <div class="skills">
   {#each categories as category}
     <Skill {category} list={skills[category]} />

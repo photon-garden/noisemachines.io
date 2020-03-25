@@ -16,7 +16,7 @@
     text: "#434342",
     darkText: "#40403f",
 
-    width: "1260px",
+    width: "612px",
     leftColumnWidth: "337px",
     rightColumnWidth: "833px"
   }
@@ -25,6 +25,41 @@
 </script>
 
 <style>
+  @font-face {
+    font-family: "BebasNeueBold";
+    src: url("../fonts/BebasNeue/BebasNeue-Bold.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "BebasNeueBook";
+    src: url("../fonts/BebasNeue/BebasNeue-Book.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "BebasNeueLight";
+    src: url("../fonts/BebasNeue/BebasNeue-Light.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "BebasNeueRegular";
+    src: url("../fonts/BebasNeue/BebasNeue-Regular.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "BebasNeueThin";
+    src: url("../fonts/BebasNeue/BebasNeue-Thin.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
   .page {
     width: 100vw;
     display: flex;

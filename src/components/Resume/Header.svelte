@@ -4,18 +4,35 @@
   import LocationIcon from "../icons/Location.svelte"
   import GlobeIcon from "../icons/Globe.svelte"
   import MailIcon from "../icons/Mail.svelte"
+  import { onMount } from "svelte"
 
   const websiteHref = person.website
   const website = person.website.replace("https://", "")
 
   const emailHref = "mailto:" + person.email
   const email = person.email
+
+  const firstLetter = person.name[0].toUpperCase()
+
+  let logoPromise = new Promise(() => {})
+  onMount(() => {
+    logoPromise = window
+      .fetch(`svg-alphabet/${firstLetter}.svg`)
+      .then(response => response.text())
+  })
 </script>
 
 <style>
+  :global(*) {
+    font-family: Cantarell;
+  }
+
   * {
     color: var(--white-text);
+    font-weight: bold;
+    font-size: 8px;
   }
+
   .header {
     background-color: var(--brand-color);
     display: flex;
@@ -25,43 +42,53 @@
   .container {
     display: flex;
     max-width: var(--width);
-    margin-top: 78px;
-    margin-bottom: 62px;
+    margin-top: 38px;
+    margin-bottom: 25px;
   }
 
   .logo {
-    margin-right: 42px;
-    margin-left: 123px;
+    margin-right: 21px;
+    margin-left: 44px;
   }
 
   :global(.logo svg) {
-    height: 227px;
-  }
-
-  :global(.logo svg path) {
-    stroke-width: 7px;
-  }
-
-  :global(svg) {
-    fill: var(--white-text);
+    width: 92px;
+    height: 110px;
+    stroke-width: 1px;
+    fill: none;
     stroke: var(--white-text);
   }
 
-  .name {
+  :global(.contact svg) {
+    /* fill: var(--white-text);
+    stroke: var(--white-text); */
+    overflow: visible;
+  }
+
+  .header .name {
     text-transform: uppercase;
-    font-size: 69px;
-    height: 68px;
+    height: 33px;
     margin-bottom: 0;
-    margin-top: 1px;
+    margin-top: 4px;
     position: relative;
+
+    font-family: BebasNeueRegular;
+    font-weight: normal;
+    font-size: 38px;
+
+    letter-spacing: 9px;
   }
 
   .job-title {
-    margin-top: 27px;
+    margin-top: 9px;
+  }
+
+  .name-and-title {
+    padding-bottom: 14px;
   }
 
   .intro-and-details {
-    margin-right: 94px;
+    margin-right: 37px;
   }
 
   .details {
@@ -71,7 +98,7 @@
 
   .contact {
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -79,7 +106,13 @@
     position: absolute;
     right: 0;
     height: 100%;
-    width: 292px;
+    width: 150px;
+  }
+
+  .contact * {
+    font-family: BebasNeueRegular;
+    font-weight: normal;
+    font-size: 12px;
   }
 
   .contact a {
@@ -92,20 +125,26 @@
   }
 
   .contact .icon {
-    margin-right: 10px;
     display: flex;
     justify-content: center;
+    width: 17px;
+  }
+
+  .contact-text {
+    height: 14px;
   }
 
   .intro {
-    margin-top: 41px;
+    margin-top: 17px;
   }
 </style>
 
 <div class="header">
   <div class="container">
     <div class="logo">
-      <svelte:component this={person.logo} />
+      {#await logoPromise then logo}
+        {@html logo}
+      {/await}
     </div>
     <div class="intro-and-details">
       <div class="details">
@@ -115,21 +154,21 @@
         </div>
         <div class="contact">
           <div class="location item">
-            <span class="icon">
+            <div class="icon">
               <LocationIcon />
-            </span>
-            {person.location}
+            </div>
+            <div class="contact-text">{person.location}</div>
           </div>
           <div class="website item">
-            <span class="icon">
+            <div class="icon">
               <GlobeIcon />
-            </span>
+            </div>
             <a href={websiteHref}>{website}</a>
           </div>
           <div class="email item">
-            <span class="icon">
+            <div class="icon">
               <MailIcon />
-            </span>
+            </div>
             <a href={emailHref}>{person.email}</a>
           </div>
         </div>

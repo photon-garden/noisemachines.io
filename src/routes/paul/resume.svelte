@@ -1,6 +1,5 @@
 <script>
   import Resume from "../../components/Resume/index.svelte"
-  import logo from "./logo.svelte"
 
   const name = `Paul Prae`
   const jobTitle = `Artificial Intelligence Systems Architect`
@@ -102,7 +101,6 @@
     location,
     website,
     email,
-    logo,
     intro,
 
     positions,
