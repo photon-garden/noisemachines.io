@@ -7,7 +7,7 @@
     width: var(--left-column-width);
     display: flex;
     justify-content: flex-end;
-    margin-right: 55px;
+    margin-right: 26px;
   }
 
   :global(.left-column > *) {
@@ -17,7 +17,7 @@
   }
 
   .right-column {
-    width: 833px;
+    width: var(--right-column-width);
   }
 </style>
 

@@ -5,7 +5,7 @@
 
 <style>
   .section-break {
-    margin-top: 28px;
+    margin-top: 6px;
   }
 
   :global(.section-break .row) {
@@ -15,7 +15,9 @@
   .name {
     color: var(--brand-color);
     text-transform: uppercase;
-    font-size: 27px;
+    font-size: 18px;
+    font-family: BebasNeueBold;
+    letter-spacing: 3px;
   }
 
   hr {

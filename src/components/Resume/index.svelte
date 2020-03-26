@@ -17,8 +17,8 @@
     darkText: "#40403f",
 
     width: "612px",
-    leftColumnWidth: "337px",
-    rightColumnWidth: "833px"
+    leftColumnWidth: "146px",
+    rightColumnWidth: "374px"
   }
 
   export let person
@@ -64,6 +64,7 @@
     width: 100vw;
     display: flex;
     justify-content: center;
+    transform: scale(2) translate(0, 25%);
   }
 
   .container {
