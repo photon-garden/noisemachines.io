@@ -48,7 +48,7 @@
 
   .logo {
     margin-right: 21px;
-    margin-left: 44px;
+    margin-left: 47px;
   }
 
   :global(.logo svg) {
@@ -88,7 +88,7 @@
   }
 
   .intro-and-details {
-    margin-right: 37px;
+    margin-right: 31px;
   }
 
   .details {
@@ -135,7 +135,8 @@
   }
 
   .intro {
-    margin-top: 17px;
+    margin-top: 10px;
+    width: 403px;
   }
 </style>
 
