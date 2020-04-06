@@ -1,8 +1,8 @@
 <script context="module">
-  import SketchCanvas from "./_SketchCanvas.svelte"
   import { renderPaths } from "canvas-sketch-util/penplot"
   import random from "canvas-sketch-util/random"
-  import { smoothPointsRecursively } from "./_helpers/smooth"
+  import SketchCanvas from "./_SketchCanvas.svelte"
+  import { smoothPointsRecursively } from "./_helpers/smooth.js"
 
   export const settings = {
     dimensions: [25, 25],
@@ -50,4 +50,4 @@
   }
 </script>
 
-<SketchCanvas {sketch} {settings} artworkId="smoothed-polyline" />
+<SketchCanvas {sketch} {settings} />

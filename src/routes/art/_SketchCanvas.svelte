@@ -2,13 +2,9 @@
   import { onMount } from "svelte"
   import canvasSketch from "canvas-sketch"
   import sleep from "./_helpers/sleep"
-  import { getMetadata } from "./[id].json.js"
 
   export let settings
   export let sketch
-  export let artworkId
-
-  const artworkMetadata = getMetadata(artworkId)
 
   let canvas
   let loading = true

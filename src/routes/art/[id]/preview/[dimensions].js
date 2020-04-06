@@ -1,7 +1,12 @@
 import { createCanvas } from 'canvas'
 import canvasSketch from 'canvas-sketch'
-import artPieces from '../..'
 import sharp from 'sharp'
+import fs from 'fs'
+import pathFromPackage from '../../_helpers/pathFromPackage.js'
+import artPieces from '../../index.js'
+
+const getPath = artworkId =>
+  pathFromPackage('src', 'routes', 'art', artworkId) + '.svelte'
 
 const getPreview = async artworkId => {
   const { sketch, settings } = artPieces[artworkId]
@@ -13,7 +18,11 @@ const getPreview = async artworkId => {
   return canvas
 }
 
-const artworkDoesntExist = artworkId => !artPieces[artworkId]
+const artworkExists = artworkId => {
+  const artworkPath = getPath(artworkId)
+  return fs.existsSync(artworkPath)
+}
+
 const getDimensions = string => {
   const [width, height] = string.split('x')
   return {
@@ -22,24 +31,25 @@ const getDimensions = string => {
   }
 }
 
-export async function get (req, res, next) {
-  res.setHeader('Content-Type', 'image/png')
-  const artworkId = req.params.id
-  const dimensions = getDimensions(req.params.dimensions)
+export async function get (request, response, next) {
+  const artworkId = request.params.id
 
-  if (artworkDoesntExist(artworkId)) {
-    res.statusCode = 404
-    res.end()
+  if (!artworkExists(artworkId)) {
+    response.statusCode = 404
+    response.end()
     return
   }
 
+  response.setHeader('Content-Type', 'image/png')
+
+  const dimensions = getDimensions(request.params.dimensions)
   const canvas = await getPreview(artworkId)
   const imageStream = canvas.createJPEGStream({ quality: 0.3 })
   const resizer = sharp()
     .resize(300)
     .jpeg()
 
-  imageStream.pipe(resizer).pipe(res)
+  imageStream.pipe(resizer).pipe(response)
 }
 
 const executor = (resolve, reject) => {
