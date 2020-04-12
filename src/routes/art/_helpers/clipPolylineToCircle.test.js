@@ -10,7 +10,5 @@ test("should return a polyline unchanged if it's completely in the circle", t =>
   const center = [0, 0]
   const radius = 1
   const clipped = clipPolylineToCircle(polyline, center, radius)
-  console.log({ clipped })
-  console.log({ polyline })
   t.deepEqual(clipped, polyline)
 })

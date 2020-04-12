@@ -12,14 +12,20 @@
     "cy:open": "cypress open",
     "test:integration": "run-p --race dev cy:run",
     "test:unit": "ava",
-    "generate-art-previews": "node src/scripts/generateArtworkPreviews"
+    "generate-art-previews": "node src/scripts/generateArtworkPreviews",
+    "color-hunt": "color-hunt > src/routes/art/colorHunt.json"
   },
   "dependencies": {
+    "@noise-machines/pixel-matrix": "^0.0.4",
+    "@rollup/plugin-json": "^4.0.2",
+    "array-range": "^1.0.1",
     "axios": "^0.19.0",
     "canvas": "^2.6.1",
     "canvas-sketch": "^0.7.1",
     "canvas-sketch-util": "^1.10.0",
+    "chroma-js": "^2.1.0",
     "chromotome": "^1.16.3",
+    "color-hunt": "^0.0.1",
     "compression": "^1.7.1",
     "dotenv": "^8.2.0",
     "json-stringify-safe": "^5.0.1",

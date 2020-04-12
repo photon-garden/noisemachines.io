@@ -55,8 +55,6 @@
     const circle = getCircle(center, radius, 100)
     lineCollections.push(circle)
 
-    console.log(props)
-
     return props =>
       renderPaths(lineCollections, {
         ...props,
