@@ -5,7 +5,7 @@ import * as noisyHatchedCircles from './noisy-hatched-circles.svelte'
 import * as sideways from './sideways.svelte'
 import * as smoothedNoisyIsoLines from './smoothed-noisy-iso-lines.svelte'
 import * as smoothedPolylines from './smoothed-polylines.svelte'
-import * as gradients from './gradients.svelte'
+import * as gradients from './gradients/index.svelte'
 
 const artPieces = {
   'animated-noisy-hatched-circles': animatedNoisyHatchedCircles,
