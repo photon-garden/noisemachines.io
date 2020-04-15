@@ -23,8 +23,11 @@
       pixelsToRenderPerFrame: 3000,
       // seed: 8895, // watermelon
       // seed: 12, // light yellow and green
-      seed: 1,
-      palette: ["#B9CCED", "#F6E7E6", "#FBF4F9", "#F6E5F5"],
+      // seed: 1,
+      // palette: ['#8AC6D1', '#FFE3ED', '#FFFDF9', '#BEEBE9'],
+      // palette: ["#DF7861", "#ECB390", "#ECDFC8", "#FCF8E8"],
+      // palette: ["#FF8C94", "#FFAAA6", "#FFD3B5", "#DCEDC2"],
+      palette: ["#F6EEC7", "#FFB6B9", "#F4DADA", "#BEEBE9"],
       interpolationStrategy: interpolationStrategies.rgba,
       gradientStopDensity: 4,
       maxDistanceScale: 0.5

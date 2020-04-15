@@ -8,9 +8,16 @@ import artPieces from '../../index.js'
 const getPath = artworkId =>
   pathFromPackage('src', 'routes', 'art', artworkId) + '.svelte'
 
+const getIndexPath = artworkId =>
+  pathFromPackage('src', 'routes', 'art', artworkId, 'index') + '.svelte'
+
 const getPreview = async artworkId => {
-  const { sketch, settings } = artPieces[artworkId]
+  const module = await artPieces[artworkId].module
+  const { sketch, settings } = module
   const canvas = createCanvas(1, 1)
+  if (!canvas.style) {
+    canvas.style = {}
+  }
 
   settings.canvas = canvas
   await canvasSketch(sketch, settings)
@@ -20,7 +27,8 @@ const getPreview = async artworkId => {
 
 const artworkExists = artworkId => {
   const artworkPath = getPath(artworkId)
-  return fs.existsSync(artworkPath)
+  const indexPath = getIndexPath(artworkId)
+  return fs.existsSync(artworkPath) || fs.existsSync(indexPath)
 }
 
 const getDimensions = string => {
@@ -50,8 +58,4 @@ export async function get (request, response, next) {
     .jpeg()
 
   imageStream.pipe(resizer).pipe(response)
-}
-
-const executor = (resolve, reject) => {
-  floorplanImageUploader
 }

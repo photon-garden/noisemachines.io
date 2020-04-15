@@ -1,6 +1,15 @@
 const capitalize = string => string[0].toUpperCase() + string.slice(1)
 
-export const getId = fileName => fileName.replace('.svelte', '')
+export const getId = path => {
+  const split = path.split('/')
+  const last = split[split.length - 1]
+  if (last === 'index.svelte') {
+    const nextToLast = split[split.length - 2]
+    return nextToLast
+  } else {
+    return last.replace('.svelte', '')
+  }
+}
 
 export const getMetadata = id => {
   const name = id
@@ -16,8 +25,8 @@ export const getMetadata = id => {
   }
 }
 
-export const getMetadataForFileName = fileName => {
-  const id = getId(fileName)
+export const getMetadataForPath = path => {
+  const id = getId(path)
   return getMetadata(id)
 }
 

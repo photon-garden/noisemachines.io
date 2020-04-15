@@ -7,6 +7,7 @@
   import { mapRange } from "canvas-sketch-util/math"
   import { triangle } from "./_helpers/waves"
   import { twoPi } from "./_helpers/pi"
+  import isBrowser from "./_helpers/isBrowser"
 
   export const settings = {
     dimensions: [25, 25],
@@ -17,7 +18,7 @@
     data: {
       density: 25
     },
-    animate: true,
+    animate: isBrowser,
     duration: 10,
     fps: 30
   }
@@ -36,7 +37,7 @@
     const grid = getGrid(props)
     const maxRadius = grid.spacing / 2
 
-    return props => {
+    const render = props => {
       const z = triangle(props.playhead)
       const circles = grid.points.flat().map(point => {
         const noise = getNoise(point, z * 5)
@@ -45,6 +46,16 @@
         return hatchedCircle
       })
       renderPaths(circles, props)
+    }
+
+    if (settings.animate) {
+      return render
+    } else {
+      render({
+        ...props,
+        playhead: 0
+      })
+      return () => {}
     }
   }
 </script>

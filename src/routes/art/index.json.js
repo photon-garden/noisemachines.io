@@ -1,31 +1,21 @@
-import path from 'path'
 import fs from 'fs'
-import pkgDir from 'pkg-dir'
-import { getMetadataForFileName } from './[id].json'
+import { getMetadataForPath } from './[id].json'
 import sortBy from 'lodash.sortby'
+import pathFromPackage from './_helpers/pathFromPackage'
+import artworks from './index.js'
 
-const blackList = ['index.svelte']
-
-const getMetadata = fileName => {
-  const filePath = path.join(artDirectory, fileName)
-  const createdAt = fs.statSync(filePath).birthtimeMs
+const getMetadata = artwork => {
+  const path = artwork.path
+  const absolutePath = pathFromPackage('src', 'routes', 'art', path)
+  const createdAt = fs.statSync(absolutePath).birthtimeMs
   return {
     createdAt,
-    ...getMetadataForFileName(fileName)
+    ...getMetadataForPath(path)
   }
 }
 
-const root = pkgDir.sync(__dirname)
-const artDirectory = path.join(root, 'src', 'routes', 'art')
-const fileNames = fs.readdirSync(artDirectory)
-
-const files = fileNames
-  .filter(fileName => !blackList.includes(fileName))
-  .filter(fileName => fileName.includes('.svelte'))
-  .filter(fileName => fileName[0] !== '_')
-  .map(getMetadata)
-
-const newestArtworksFirst = sortBy(files, 'createdAt').reverse()
+const artworksWithMetadata = Object.values(artworks).map(getMetadata)
+const newestArtworksFirst = sortBy(artworksWithMetadata, 'createdAt').reverse()
 
 export async function get (req, res, next) {
   return res.end(JSON.stringify(newestArtworksFirst))
