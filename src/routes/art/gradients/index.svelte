@@ -95,26 +95,24 @@
   }
 
   const getGradientStops = (palette, pixels, density = 3) => {
-    const [xs, ys] = getGridWithMargin(pixels.width, pixels.height, density, 0)
+    const points = getGridWithMargin(pixels.width, pixels.height, density, 0)
 
     const gradientStops = []
 
     const randomWalk = getRandomWalker(0, palette.length)
 
-    for (const x of xs) {
-      for (const y of ys) {
-        // const color = wrapIndex(palette, colorIndex)
-        // const color = noisePick2D(x, y, palette)
-        const index = randomWalk()
-        const color = palette[index]
+    for (const [x, y] of points) {
+      // const color = wrapIndex(palette, colorIndex)
+      // const color = noisePick2D(x, y, palette)
+      const index = randomWalk()
+      const color = palette[index]
 
-        const stop = {
-          color,
-          point: { x, y }
-        }
-
-        gradientStops.push(stop)
+      const stop = {
+        color,
+        point: { x, y }
       }
+
+      gradientStops.push(stop)
     }
 
     return gradientStops
