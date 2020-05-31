@@ -5,6 +5,8 @@
 
   export let settings
   export let sketch
+  const data = settings.data || {}
+  const backgroundColor = data.backgroundColor || "white"
 
   let canvas
   let loading = true
@@ -41,6 +43,8 @@
   }
 </style>
 
-<div class="sketch-canvas-container">
+<div
+  class="sketch-canvas-container"
+  style={`background-color: ${backgroundColor};`}>
   <canvas class:loading bind:this={canvas} />
 </div>

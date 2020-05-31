@@ -12,8 +12,9 @@
     "cy:open": "cypress open",
     "test:integration": "run-p --race dev cy:run",
     "test:unit": "ava",
-    "generate-art-previews": "node src/scripts/generateArtworkPreviews",
-    "color-hunt": "color-hunt > src/routes/art/colorHunt.json"
+    "saveArtPreviews": "yarn compileScripts && node compiledScripts/saveArtPreviews",
+    "compileScripts": "rollup --config scripts/rollup.config.js --format cjs --input scripts/saveArtPreviews.js --file compiledScripts/saveArtPreviews.js",
+    "color-hunt": "color-hunt > source/routes/art/colorHunt.json"
   },
   "dependencies": {
     "@noise-machines/pixel-matrix": "^0.0.4",
@@ -42,7 +43,8 @@
     "query-string": "^6.9.0",
     "regl": "^1.4.2",
     "sharp": "^0.25.1",
-    "sirv": "^0.4.0"
+    "sirv": "^0.4.0",
+    "three": "^0.116.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

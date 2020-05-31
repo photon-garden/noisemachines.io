@@ -9,35 +9,35 @@
 
 const artPieces = {
   'animated-noisy-hatched-circles': {
-    module: import('./animated-noisy-hatched-circles.svelte'),
+    modulePromise: import('./animated-noisy-hatched-circles.svelte'),
     path: './animated-noisy-hatched-circles.svelte'
   },
   'dot-grid': {
-    module: import('./dot-grid.svelte'),
+    modulePromise: import('./dot-grid.svelte'),
     path: './dot-grid.svelte'
   },
   'iso-circle': {
-    module: import('./iso-circle.svelte'),
+    modulePromise: import('./iso-circle.svelte'),
     path: './iso-circle.svelte'
   },
   'noisy-hatched-circles': {
-    module: import('./noisy-hatched-circles.svelte'),
+    modulePromise: import('./noisy-hatched-circles.svelte'),
     path: './noisy-hatched-circles.svelte'
   },
   sideways: {
-    module: import('./sideways.svelte'),
+    modulePromise: import('./sideways.svelte'),
     path: './sideways.svelte'
   },
   'smoothed-noisy-iso-lines': {
-    module: import('./smoothed-noisy-iso-lines.svelte'),
+    modulePromise: import('./smoothed-noisy-iso-lines.svelte'),
     path: './smoothed-noisy-iso-lines.svelte'
   },
   'smoothed-polylines': {
-    module: import('./smoothed-polylines.svelte'),
+    modulePromise: import('./smoothed-polylines.svelte'),
     path: './smoothed-polylines.svelte'
   },
   gradients: {
-    module: import('./gradients/index.svelte'),
+    modulePromise: import('./gradients/index.svelte'),
     path: './gradients/index.svelte'
   }
 }

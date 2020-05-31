@@ -52,4 +52,4 @@
   }
 </script>
 
-<SketchCanvas {sketch} {settings} artworkId="quadratic-beziers" />
+<SketchCanvas {sketch} {settings} artworkId="leaves" />
