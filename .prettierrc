@@ -1,4 +1,5 @@
 {
   "semi": false,
-  "quote": single
+  "quote": single,
+  "useTab": false
 }

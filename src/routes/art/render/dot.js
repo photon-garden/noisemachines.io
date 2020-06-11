@@ -8,14 +8,14 @@ import stroke, {
   elementProperties as strokeElementProperties
 } from './helpers/stroke'
 
-const elementProperties = {
+export const elementProperties = {
   ...multiFillElementProperties,
   ...strokeElementProperties,
   point,
   size
 }
 
-function dot (props, element) {
+export function render (props, element) {
   const { context } = props
   const { point, size } = element
 
@@ -30,4 +30,4 @@ function dot (props, element) {
   stroke(props, element)
 }
 
-export default withElementProperties(elementProperties, dot)
+export default withElementProperties(elementProperties, render)
