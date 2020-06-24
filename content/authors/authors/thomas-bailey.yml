@@ -1,0 +1,13 @@
+name: Thomas Bailey
+bio: |
+  I’m building a software consultancy so my friends and I can travel together
+  making art and music. More generally, I care about creating financial freedom
+  for folks through fun and meaningful work.
+avatar: ./avatars/thomas-bailey.png
+social:
+  - url: https://unsplash.com
+  - url: https://stackoverflow.com
+  - url: https://github.com
+  - url: https://github.com
+  - url: https://github.com
+featured: true

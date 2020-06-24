@@ -1,2 +1,0 @@
-webpackJsonp([60335399758886],{104:function(t,e){t.exports={data:{site:{siteMetadata:{author:{name:"Thomas Bailey",contact:{email:"thomas@noisemachines.io",twitter:"https://twitter.com/@noise_machines"}},title:"Noise Machines"}}},layoutContext:{}}}});
-//# sourceMappingURL=path----8481ba6ee40af9534615.js.map

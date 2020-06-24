@@ -2,7 +2,9 @@
 const preferDefault = m => m && m.default || m
 
 exports.components = {
-  "component---cache-dev-404-page-js": () => import("/Users/noisemachines/dev/noisemachines.io/.cache/dev-404-page.js" /* webpackChunkName: "component---cache-dev-404-page-js" */),
-  "component---src-pages-index-js": () => import("/Users/noisemachines/dev/noisemachines.io/src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */)
+  "component---node-modules-narative-gatsby-theme-novela-src-templates-articles-template-tsx": () => import("./../node_modules/@narative/gatsby-theme-novela/src/templates/articles.template.tsx" /* webpackChunkName: "component---node-modules-narative-gatsby-theme-novela-src-templates-articles-template-tsx" */),
+  "component---node-modules-narative-gatsby-theme-novela-src-templates-article-template-tsx": () => import("./../node_modules/@narative/gatsby-theme-novela/src/templates/article.template.tsx" /* webpackChunkName: "component---node-modules-narative-gatsby-theme-novela-src-templates-article-template-tsx" */),
+  "component---node-modules-narative-gatsby-theme-novela-src-templates-author-template-tsx": () => import("./../node_modules/@narative/gatsby-theme-novela/src/templates/author.template.tsx" /* webpackChunkName: "component---node-modules-narative-gatsby-theme-novela-src-templates-author-template-tsx" */),
+  "component---src-pages-404-js": () => import("./../src/pages/404.js" /* webpackChunkName: "component---src-pages-404-js" */)
 }
 
